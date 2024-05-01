@@ -1,0 +1,66 @@
+Parameter,Description,Units,Variable Description,Notes
+Cube,Cube number for the experiment,n/a,Qualitative Variable,
+IncTime,Time of incubation,hours,Qualitative Variable,
+LC,Limnocorral number,n/a,Qualitative Variable,"Limnocorrals 1-12 indicate limnocorral number, 13-15 indicate pond number as they are samples from the pond"
+Pond,Pond Number,n/a,Qualitative Variable,Limnocorral water was originated from the surrounding ponds. Ponds used are numbered 13-15
+NutRat,Nitrogen (N):Phosporous (P) ratio of additions to limnocorrals,n/a,Qualitative Variable,"0 indicates no nutrient addition control ponds, all nutrient additions are normalized to P"
+VitAdd,Whether vitamins were added or not,n/a,Qualitative Variable,
+P_F_B,steady-state fluorescence of cyanobacteria as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm_B,maximum fluorescence at light-adapted state of cyanobacteria as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm-F_B,Difference between F and Fm of cyanobacteria as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Y_B,Photochemical effiency photosystem II of cyanobacteria as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_FvFM_B,Photochemical efficiency of photosystem II  in actinic light of cyanobacteria as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_Chl_B,Concentration of cyanobacteria chlorophyll a as measured by the Phyto-PAM-II,µg L-1,Quantatative Continuous Variable,
+P_F_E_B,steady-state fluorescence of cyanobacteria as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm_E_B,maximum fluorescence at light-adapted state of cyanobacteria as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm-F_E_B,Difference between F and Fm of cyanobacteria as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Y_E_B,Photochemical effiency photosystem II of cyanobacteria as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_FvFM_E_B,Photochemical efficiency of photosystem II  in actinic light of cyanobacteria as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Chl_E_B,Concentration of cyanobacteria chlorophyll a as measured by the Phyto-PAM-II standard deviation,µg L-1,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_F_G,steady-state fluorescence of green algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm_G,maximum fluorescence at light-adapted state of green algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm-F_G,Difference between F and Fm of green algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Y_G,Photochemical effiency photosystem II of green algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_FvFM_G,Photochemical efficiency of photosystem II  in actinic light of green algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_Chl_G,Concentration of green algae chlorophyll a as measured by the Phyto-PAM-II,µg L-1,Quantatative Continuous Variable,
+P_F_E_G,steady-state fluorescence of green algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm_E_G,maximum fluorescence at light-adapted state of green algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm-F_E_G,Difference between F and Fm of green algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Y_E_G,Photochemical effiency photosystem II of green algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_FvFM_E_G,Photochemical efficiency of photosystem II  in actinic light of green algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Chl_E_G,Concentration of green algae chlorophyll a as measured by the Phyto-PAM-II standard deviation,µg L-1,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_F_Br,steady-state fluorescence of brown algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm_Br,maximum fluorescence at light-adapted state of brown algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm-F_Br,Difference between F and Fm of brown algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Y_Br,Photochemical effiency photosystem II of brown algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_FvFM_Br,Photochemical efficiency of photosystem II  in actinic light of brown algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_Chl_Br,Concentration of brown algae chlorophyll a as measured by the Phyto-PAM-II,µg L-1,Quantatative Continuous Variable,
+P_F_E_Br,steady-state fluorescence of brown algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm_E_Br,maximum fluorescence at light-adapted state of brown algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm-F_E_Br,Difference between F and Fm of brown algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Y_E_Br,Photochemical effiency photosystem II of brown algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_FvFM_E_Br,Photochemical efficiency of photosystem II  in actinic light of brown algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Chl_E_Br,Concentration of brown algae chlorophyll a as measured by the Phyto-PAM-II standard deviation,µg L-1,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_F_PE,steady-state fluorescence of phycoerythrin containing algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm_PE,maximum fluorescence at light-adapted state of phycoerythrin containing algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Fm-F_PE,Difference between F and Fm of phycoerythrin containing algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,
+P_Y_PE,Photochemical effiency photosystem II of phycoerythrin containing algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_FvFM_PE,Photochemical efficiency of photosystem II  in actinic light of phycoerythrin containing algae as measured by the Phyto-PAM-II,unitless,Quantatative Continuous Variable,Value between 0 and 1
+P_Chl_PE,Concentration of phycoerythrin containing algae chlorophyll a as measured by the Phyto-PAM-II,µg L-1,Quantatative Continuous Variable,
+P_F_E_PE,steady-state fluorescence of phycoerythrin containing algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm_E_PE,maximum fluorescence at light-adapted state of phycoerythrin containing algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Fm-F_E_PE,Difference between F and Fm of phycoerythrin containing algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Y_E_PE,Photochemical effiency photosystem II of phycoerythrin containing algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_FvFM_E_PE,Photochemical efficiency of photosystem II  in actinic light of phycoerythrin containing algae as measured by the Phyto-PAM-II standard deviation,unitless,Quantatative Continuous Variable,Value between 0 and 1; n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+P_Chl_E_PE,Concentration of phycoerythrin containing algae chlorophyll a as measured by the Phyto-PAM-II standard deviation,µg L-1,Quantatative Continuous Variable,n/a indicates that it was not in duplicate. This is due to cube being true replicates but T0 being run in duplicates. 
+L_TDN,Total dissolved nitrogen,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_TN,Total nitrogen,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_TDP,Total dissolved Phosphorous,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_TP,Total phosphorous,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_DP,Dissolved orthophosphate,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_NH4,Ammonia,µg L-1,Quantatative Continuous Variable,Run on Lachat
+L_NOX,Nitrate plus nitrite,µg L-1,Quantatative Continuous Variable,Run on Lachat
+PP,Particulate P,mg L-1,Quantatative Continuous Variable,Run on Beckman
+Chl_445,Chlorophyll a (EPA Method 445.0),µg L-1,Quantatative Continuous Variable,Run on Turner Trilogy
+EA_C,Particulate C,mg L-1,Quantitative,Run on Thermo-Fisher Flashsmart NC soil elemental analyzer
+EA_N,Particulate N,mg L-1,Quantitative,Run on Thermo-Fisher Flashsmart NC soil elemental analyzer
