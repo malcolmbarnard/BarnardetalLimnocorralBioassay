@@ -15,7 +15,7 @@ library(maps)
 library(mapdata)
 library(ggstar)
 
-##This code relates to data availble at https://github.com/malcolmbarnard/BarnardetalLimnocorralBioassay
+##This code relates to data available at https://github.com/malcolmbarnard/BarnardetalLimnocorralBioassay
 #setwd("C:/Users/malco/BarnardetalLimnocorralBioassay") ## Please change this to your personal directory path
 data2022<-read.csv("July2022BioassayData.csv")
 data2023<-read.csv("July2023BioassayData.csv")
@@ -23,7 +23,8 @@ data<-rbind(data2022,data2023)
 datat48<-data %>% filter(data$IncTime == "48")
 datat48$Constant1 <- 1
 datat48$Year <- as.character(datat48$Year)
-
+datat48$NutRat <- as.character(datat48$NutRat)
+datat48$NutRat[datat48$NutRat==0] <- "Control"
 
 #PSII Efficiency (Y) by Group
 cyanoY <- aggregate(P_Y_B ~ NutRat + VitAdd + Year, 
@@ -84,7 +85,7 @@ PSIIGroup <- ggplot(Ymeansdgroup)+
           legend.direction = "vertical", legend.spacing.y = unit(0.4, 'cm'),
           panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
           text = element_text(size=16))+
-  facet_wrap(~NutRat)+
+          facet_wrap(~NutRat)+
   theme_bw();
 PSIIGroup  
 ggsave(filename="PSII.tiff",PSIIGroup,
@@ -209,7 +210,7 @@ ChlTotal <- ggplot(totalchl)+
                    pattern_frequency = 5, pattern_angle = 45)+
   scale_fill_manual(values=c("#E1BE6A","#40B0A6"))+
   scale_pattern_manual(values=c('none','stripe'))+
-  scale_x_discrete(limits = c("0","2.2","16","55","110")) +
+  scale_x_discrete(limits = c("Control","2.2","16","55","110")) +
   labs(y = "Total Chlorophyll a (µg/L)", x="N:P Addition Ratio of Limnocorral", title = "Total Phytoplankton Biomass after 48H of incubation")+
   geom_errorbar(aes(ymin = Value-SD, ymax = Value+SD), width = 0.3, position = position_dodge(0.9))+
   guides(fill = guide_legend(override.aes = list(pattern = c("none")))) +
@@ -249,7 +250,7 @@ ChlC <- ggplot(chlC)+
                    pattern_frequency = 5, pattern_angle = 45)+
   scale_fill_manual(values=c("#E1BE6A","#40B0A6"))+
   scale_pattern_manual(values=c('none','stripe'))+
-  scale_x_discrete(limits = c("0","2.2","16","55","110")) +
+  scale_x_discrete(limits = c("Control","2.2","16","55","110")) +
   labs(y = "Chl:C Ratio (mg/mg)", x="N:P Addition Ratio of Limnocorral", title = "Chlorophyll:C ratios after 48H of incubation")+
   geom_errorbar(aes(ymin = Value-SD, ymax = Value+SD), width = 0.3, position = position_dodge(0.9))+
   guides(fill = guide_legend(override.aes = list(pattern = c("none")))) +
@@ -686,7 +687,7 @@ totchldunnNutRat <- datat48 %>%
 totchldunnNutRat
 
 totchldunnNutRat <- totchldunnNutRat %>% add_xy_position(x = "NutRat")
-TotchlboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Chl_Total", ylab = "Total Chlorophyll a (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+TotchlboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Chl_Total", ylab = "Total Chlorophyll a (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(totchldunnNutRat, hide.ns = TRUE) +
   labs(
@@ -779,7 +780,7 @@ chlCdunnNutRat <- datat48 %>%
 chlCdunnNutRat
 
 chlCdunnNutRat <- chlCdunnNutRat %>% add_xy_position(x = "NutRat")
-chlCboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "ChlC_ratio", ylab = "Chlorophyll a:C ratio (mg/mg)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+chlCboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "ChlC_ratio", ylab = "Chlorophyll a:C ratio (mg/mg)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(chlCdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -873,7 +874,7 @@ YBdunnNutRat <- datat48 %>%
 YBdunnNutRat
 
 YBdunnNutRat <- YBdunnNutRat %>% add_xy_position(x = "NutRat")
-YBboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_B", ylab = "Cyanobacterial PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+YBboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_B", ylab = "Cyanobacterial PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(YBdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -957,7 +958,7 @@ YGdunnNutRat <- datat48 %>%
 YGdunnNutRat
 
 YGdunnNutRat <- YGdunnNutRat %>% add_xy_position(x = "NutRat")
-YGboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_G", ylab = "Green Algal PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+YGboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_G", ylab = "Green Algal PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(YGdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1041,7 +1042,7 @@ YBrdunnNutRat <- datat48 %>%
 YBrdunnNutRat
 
 YBrdunnNutRat <- YBrdunnNutRat %>% add_xy_position(x = "NutRat")
-YBrboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_Br", ylab = "Brown Algal PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+YBrboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "P_Y_Br", ylab = "Brown Algal PSII Efficiency ", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(YBrdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1139,7 +1140,7 @@ NO3dunnNutRat <- datat48 %>%
 NO3dunnNutRat
 
 NO3dunnNutRat <- NO3dunnNutRat %>% add_xy_position(x = "NutRat")
-NO3boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_NOX", ylab = "NOx Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+NO3boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_NOX", ylab = "NOx Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(NO3dunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1223,7 +1224,7 @@ NH4dunnNutRat <- datat48 %>%
 NH4dunnNutRat
 
 NH4dunnNutRat <- NH4dunnNutRat %>% add_xy_position(x = "NutRat")
-NH4boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_NH4", ylab = "NH4 Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+NH4boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_NH4", ylab = "NH4 Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(NH4dunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1307,7 +1308,7 @@ DPdunnNutRat <- datat48 %>%
 DPdunnNutRat
 
 DPdunnNutRat <- DPdunnNutRat %>% add_xy_position(x = "NutRat")
-DPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_DP", ylab = "SRP Concentration (µg/L) ", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+DPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_DP", ylab = "SRP Concentration (µg/L) ", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(DPdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1402,7 +1403,7 @@ ChlBdunnNutRat <- datat48 %>%
 ChlBdunnNutRat
 
 ChlBdunnNutRat <- ChlBdunnNutRat %>% add_xy_position(x = "NutRat")
-ChlBboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_B", ylab = "Cyanobacterial Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+ChlBboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_B", ylab = "Cyanobacterial Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(ChlBdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1486,7 +1487,7 @@ ChlGdunnNutRat <- datat48 %>%
 ChlGdunnNutRat
 
 ChlGdunnNutRat <- ChlGdunnNutRat %>% add_xy_position(x = "NutRat")
-ChlGboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_G", ylab = "Green Algal Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+ChlGboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_G", ylab = "Green Algal Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(ChlGdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1570,7 +1571,7 @@ ChlBrdunnNutRat <- datat48 %>%
 ChlBrdunnNutRat
 
 ChlBrdunnNutRat <- ChlBrdunnNutRat %>% add_xy_position(x = "NutRat")
-ChlBrboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_Br", ylab = "Brown Algal Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+ChlBrboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "Prop_Chl_Br", ylab = "Brown Algal Community Fraction", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(ChlBrdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1600,7 +1601,7 @@ ChlBrboxplotVitAdd
 ##Combining Plots
 PCboxplotscombined <- ggarrange(ChlBboxplotYear, ChlBboxplotNutRat, ChlBboxplotVitAdd, ChlGboxplotYear, ChlGboxplotNutRat, ChlGboxplotVitAdd,ChlBrboxplotYear, ChlBrboxplotNutRat, ChlBrboxplotVitAdd,
                                 labels = c("A", "B", "C","D", "E", "F","G", "H", "I"),
-                                ncol = 3, nrow = 4);
+                                ncol = 3, nrow = 3);
 PCboxplotscombined
 
 ggsave(filename="Stat_Outputs/PhytoCommunityBoxPlotsCombined.tiff",PCboxplotscombined,
@@ -1666,7 +1667,7 @@ CNdunnNutRat <- datat48 %>%
 CNdunnNutRat
 
 CNdunnNutRat <- CNdunnNutRat %>% add_xy_position(x = "NutRat")
-CNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CNRatio", ylab = "C:N Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+CNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CNRatio", ylab = "C:N Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(CNdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1750,7 +1751,7 @@ CPdunnNutRat <- datat48 %>%
 CPdunnNutRat
 
 CPdunnNutRat <- CPdunnNutRat %>% add_xy_position(x = "NutRat")
-CPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CPRatio", ylab = "C:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+CPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CPRatio", ylab = "C:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(CPdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1834,7 +1835,7 @@ NPdunnNutRat <- datat48 %>%
 NPdunnNutRat
 
 NPdunnNutRat <- NPdunnNutRat %>% add_xy_position(x = "NutRat")
-NPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "NPRatio", ylab = "N:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+NPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "NPRatio", ylab = "N:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(NPdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -1931,7 +1932,7 @@ CN1dunnNutRat <- datat48 %>%
 CN1dunnNutRat
 
 CN1dunnNutRat <- CN1dunnNutRat %>% add_xy_position(x = "NutRat")
-CN1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CNRatio", ylab = "C:N Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+CN1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CNRatio", ylab = "C:N Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(CNdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2015,7 +2016,7 @@ CP1dunnNutRat <- datat48 %>%
 CP1dunnNutRat
 
 CP1dunnNutRat <- CP1dunnNutRat %>% add_xy_position(x = "NutRat")
-CP1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CPRatio1", ylab = "C:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+CP1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "CPRatio1", ylab = "C:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(CP1dunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2099,7 +2100,7 @@ NP1dunnNutRat <- datat48 %>%
 NP1dunnNutRat
 
 NP1dunnNutRat <- NP1dunnNutRat %>% add_xy_position(x = "NutRat")
-NP1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "NPRatio1", ylab = "N:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+NP1boxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "NPRatio1", ylab = "N:P Ratio", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(NP1dunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2199,7 +2200,7 @@ TNdunnNutRat <- datat48 %>%
 TNdunnNutRat
 
 TNdunnNutRat <- TNdunnNutRat %>% add_xy_position(x = "NutRat")
-TNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TN", ylab = "TN Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+TNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TN", ylab = "TN Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(TNdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2284,7 +2285,7 @@ TDNdunnNutRat <- datat48 %>%
 TDNdunnNutRat
 
 TDNdunnNutRat <- TDNdunnNutRat %>% add_xy_position(x = "NutRat")
-TDNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TDN", ylab = "TDN Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+TDNboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TDN", ylab = "TDN Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(TDNdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2368,7 +2369,7 @@ TPdunnNutRat <- datat48 %>%
 TPdunnNutRat
 
 TPdunnNutRat <- TPdunnNutRat %>% add_xy_position(x = "NutRat")
-TPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TP", ylab = "TP Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+TPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TP", ylab = "TP Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(TPdunnNutRat, hide.ns = TRUE) +
   labs(
@@ -2453,7 +2454,7 @@ TDPdunnNutRat <- datat48 %>%
 TDPdunnNutRat
 
 TDPdunnNutRat <- TDPdunnNutRat %>% add_xy_position(x = "NutRat")
-TDPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TDP", ylab = "TDP Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("0","2.2","16","55","110")) +
+TDPboxplotNutRat <- ggboxplot(datat48, x = "NutRat", y = "L_TDP", ylab = "TDP Concentration (µg/L)", xlab = "Limnocorral N:P Ratio", order = c("Control","2.2","16","55","110")) +
   stat_summary(fun.y=mean, geom="point", shape=17, size=3, color="black", fill="black") +
   stat_pvalue_manual(TDPdunnNutRat, hide.ns = TRUE) +
   labs(
