@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: 'GitHub: malcolmbarnard/BarnardetalLimnocorralBioassay'
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Malcolm A.
+    family-names: Barnard
+    email: malcolm.barnard@utexas.edu
+    affiliation: University of Texas at Austin
+    orcid: 'https://orcid.org/0000-0003-4192-574X'
+identifiers:
+  - type: doi
+    value: 10.5281/zenodo.11100023
+  - type: url
+    value: >-
+      https://github.com/malcolmbarnard/BarnardetalLimnocorralBioassay
+repository-code: >-
+  https://github.com/malcolmbarnard/BarnardetalLimnocorralBioassay
+license: MIT
